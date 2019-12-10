@@ -4,3 +4,8 @@
 #     > Soccer jersey collection app
 #     >API: api.football-data.org
 #     >Data scrape: https://www.mlssoccer.com/news
+
+# >Ryann Kargus
+#   >Photography Collection App
+#   >API: https://picsum.photos/
+#   >Data Scrape: https://photographylife.com/
