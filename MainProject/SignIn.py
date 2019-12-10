@@ -14,3 +14,6 @@
 #   >Photography Collection App
 #   >API: https://picsum.photos/
 #   >Data Scrape: https://photographylife.com/
+
+# > Marvin Nguyen
+#     >Ideas: Create a new color palette, new nav bar
