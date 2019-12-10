@@ -9,3 +9,8 @@
 #   >>> Nutrition Calculator
 #   >>> API: https://developer.nutritionix.com/
 #   >>> Data Scrape: https://www.bodybuilding.com/ -- Workout Product Prices
+
+# >Ryann Kargus
+#   >Photography Collection App
+#   >API: https://picsum.photos/
+#   >Data Scrape: https://photographylife.com/
