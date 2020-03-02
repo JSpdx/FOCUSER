@@ -10,3 +10,7 @@
 #   >API: https://www.discogs.com/developers
 #   >Data scrape: https://www.billboard.com/charts/billboard-200
 
+# > Alexis A.
+#   > Garden plant planner app
+#   >API: https://trefle.io/
+#   >Data scrape: https://www.burpee.com/herbs/
