@@ -5,6 +5,11 @@
 #     >API: api.football-data.org
 #     >Data scrape: https://www.mlssoccer.com/news
 
+# > Miles M. Hoover
+#   > Vinyl record collection app
+#   >API: https://www.discogs.com/developers
+#   >Data scrape: https://www.billboard.com/charts/billboard-200
+
 # > Jon Shaw
 #   > Astronomy App. Database is a list of Solar Eclipse times and locations
 #   > API: I want to use one or more APIs from NASA, either NASA https://apod.nasa.gov/apod/astropix.html,
@@ -12,3 +17,7 @@
 #   > Data scrape: NASA ISS feed. https://www.nasa.gov/mission_pages/station/main/index.html
 
 
+# > Alexis A.
+#   > Garden plant planner app
+#   >API: https://trefle.io/
+#   >Data scrape: https://www.burpee.com/herbs/
