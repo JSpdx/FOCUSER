@@ -356,8 +356,22 @@ height: 100%;
             Specific Styling for Focuser app
 ========================================================*/
 
+div #container{
+    text-align: center;
+    position: relative;
+    padding:0;
+}
 
-
+#container img {
+    border-radius: 50%;
+    height:10%;
+    height:500px;
+/*   padding: 80px;*/
+    align: center;
+    margin:0;
+    vertical-align:middle;
+    width:auto;
+}
 
 
 /* ============= RESPONSIVE max-width: 991p =========== */
