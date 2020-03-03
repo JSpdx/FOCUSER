@@ -1,4 +1,5 @@
 from django.shortcuts import render
 
 def home(request):
-    return render(request, 'focuser_home.html')
+    return render(request, 'Focuser/focuser_home.html')
+
