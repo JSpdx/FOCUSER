@@ -367,3 +367,18 @@ height: 100%;
 
 
 }
+
+/* ===========================================
+    Specific styling Vinyl Collection App //  START
+=============================================*/
+
+.vinyl_collection_base {
+text-align: center;
+}
+
+#Vinyl_Collection_homeInfo img {
+display: block;
+margin: 0 auto;
+}
+
+/* =====  Specific styling Vinyl Collection App // End =====*/
