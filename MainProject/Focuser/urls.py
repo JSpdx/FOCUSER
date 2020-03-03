@@ -5,6 +5,5 @@ from . import views
 ## Third is the name of the pattern/function.
 
 urlpatterns = [
-    path('', views.home, name='focuser'), #home page
+    path('', views.home, name='focuser'),  #home page
 ]
-
