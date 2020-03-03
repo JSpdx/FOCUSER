@@ -23,7 +23,10 @@ urlpatterns = [
     path('', include('HomePage.urls')),
     path('footy/', include('FootyDemo.urls')),
     path('plant/', include('plantPlanner.urls')),
+    path('focuser/', include('Focuser.urls')),
     path('vinyls/', include('VinylCollection.urls')),
-]
+    ]
+
+
 
 urlpatterns += staticfiles_urlpatterns()
