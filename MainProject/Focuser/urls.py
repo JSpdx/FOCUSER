@@ -7,3 +7,4 @@ from . import views
 urlpatterns = [
     path('', views.home, name='focuser'), #home page
 ]
+
