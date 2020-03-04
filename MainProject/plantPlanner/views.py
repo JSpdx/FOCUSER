@@ -25,3 +25,9 @@ def create(request):
         print(form.errors)                      #Prints any errors for the posted form to the terminal
         form = PlantForm()                     #Creates a new blank form
     return render(request, 'plantPlanner/plant_create.html', {'form':form})
+
+#View function that controls the main index page - list of jerseys
+def index(request):
+    get_plants = Plant.Plants.all()      #Gets all the current jerseys from the database
+    context = {'plants': get_plants}      #Creates a dictionary object of all the jerseys for the template
+    return render(request, 'plantPlanner/plant_index.html', context)
