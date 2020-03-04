@@ -8,4 +8,5 @@ urlpatterns = [
     path('', views.home, name='plant'),  #home page
     path('create', views.create, name='create'), #create page
     path('index', views.index, name='index'), #index page
+    path('details', views.details, name='details'), #details page
     ]
