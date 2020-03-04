@@ -1,16 +1,17 @@
-from django.shortcuts import render
+
 from .forms import EclipseForm
 from .models import Eclipse
+from django.shortcuts import render, redirect, get_object_or_404
 
 def home(request):
     return render(request, 'Focuser/focuser_home.html')
 
 
-#View function to add a new jersey to the database
+#View function to add a new eclipse to the database
 def add_event(request):
     form = EclipseForm(request.POST or None)     #Gets the posted form, if one exists
     if form.is_valid():                         #Checks the form for errors, to make sure it's filled in
-        form.save()                             #Saves the valid form/jersey to the database
+        form.save()                             #Saves the valid form/eclipse to the database
         return redirect('listEclipses')                #Redirects to the index page, which is named 'footy' in the urls
     else:
         print(form.errors)                      #Prints any errors for the posted form to the terminal
