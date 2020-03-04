@@ -25,3 +25,5 @@ def index(request):
     context = {'eclipses': get_eclipses}  # Creates a dictionary object of all the jerseys for the template
     return render(request, 'Focuser/focuser_index.html', context)
 
+def details(request):
+
