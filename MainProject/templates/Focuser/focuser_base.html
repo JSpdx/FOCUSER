@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block appcontent %}
+    <section>
+        <div class="flex-container wrapper">
+            <h5>Focuser</h5>
+            <hr />
+            <a class= 'tabNav' href="{% url 'focuser' %}">Home</a>
+            <a class= 'tabNav'  href="{% url 'listEclipses' %}">Eclipse events</a>
 
+        </div>
+    </section>
 
 
     {% block templatecontent %}{% endblock %} <!-- section that all the template specific content will render within -->
