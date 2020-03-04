@@ -4,24 +4,23 @@
 <section >
     <div class="flex-container" id="jerseyCollectionPage">
         <table class="table-striped">
-            <tr>
+            <tr id="column_header">
                 <th class="col-md">Date</th>
                 <th class="col-md">Locations</th>
                 <th class="col-md">Type</th>
                 <th class="col-md">Subtype</th>
-                <th class="col-md">Description</th>
+
 
             </tr>
-            {% for jersey in jerseys %}     <!-- creates a new row for each jersey in the collection -->
+            {% for eclipse in eclipses %}     <!-- creates a new row for each jersey in the collection -->
                 <tr>
-                    <td class="col-md">{{jersey.team}}</td>
-                    <td class="col-md">{{jersey.country}}</td>
-                    <td class="col-md">{{jersey.manufacturer}}</td>
-                    <td class="col-md">{{jersey.size}}</td>
-                    <td class="col-md">{{jersey.year}}</td>
-                    <td class="col-md">{{jersey.primary_color}}</td>
+                    <td class="col-md">{{eclipse.date}}</td>
+                    <td class="col-md">{{eclipse.locations}}</td>
+                    <td class="col-md">{{eclipse.type}}</td>
+                    <td class="col-md">{{eclipse.subtype}}</td>
+
                     <td class="col-md">
-                        {% if jersey.authentic %} &#8730 {% endif %}
+                        {% if eclipse.authentic %} &#8730 {% endif %}
                     </td>
                     <td class="col-md"><a href="{{jersey.pk}}/Details"><button class="primary-light-button">Details</button></a></td>    <!-- creates a link for that specific jersey -->
                 </tr>

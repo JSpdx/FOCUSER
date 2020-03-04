@@ -373,6 +373,13 @@ div #container{
     width:auto;
 }
 
+.focuser_col {
+    margin: 10px;
+    align: center;
+
+}
+
+
 /*==========================================
             End Focuser Styling
 ===========================================*/
