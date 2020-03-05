@@ -8,4 +8,6 @@ urlpatterns = [
     path('', views.home, name='plant'),  #home page
     path('create', views.create, name='create'), #create page
     path('index', views.index, name='index'), #index page
-    ]
+    path('<int:pk>/Details/', views.details_plant, name='details'),  # get details for a single jersey
+
+]
