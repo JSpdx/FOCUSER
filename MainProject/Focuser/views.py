@@ -30,3 +30,6 @@ def details(request, pk):
     item = get_object_or_404(Eclipse, pk=pk)
     context = {'eclipse': item}
     return render(request, 'Focuser/focuser_details.html', context)
+
+def edit(request):
+    return(render(request, 'Focuser/focuser_edit.html'))

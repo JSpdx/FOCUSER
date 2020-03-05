@@ -22,7 +22,8 @@
                     <td class="col-md">
                         {% if eclipse.authentic %} &#8730 {% endif %}
                     </td>
-                    <td class="col-md"><a href="{{eclipse.pk}}/Details"><button class="primary-light-button">Details</button></a></td>    <!-- creates a link to details -->
+                    <td class="col-md"><a href="{{eclipse.pk}}/Details"><button class="primary-light-button">Details</button></a></td>
+                    <td class="col-md"><a href='{% url "edit" %}'><button class="primary-light-button">Edit</button></a></td> <!-- creates a link to details -->
                 </tr>
             {% endfor %}
         </table>
