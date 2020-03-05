@@ -5,5 +5,8 @@ from django.db import models
 class Album(models.Model):
     title = models.CharField(max_length=100, null=True)
     artist = models.CharField(max_length=100)
-    albums = models.Manager()
-    #Add image later
+
+    Albums = models.Manager()
+
+    def __str__(self):
+        return self.title
