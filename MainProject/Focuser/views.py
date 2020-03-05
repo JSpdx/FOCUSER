@@ -27,6 +27,6 @@ def index(request):
 
 def details(request, pk):
     pk = int(pk)
-    details = get_object_or_404(Eclipse, pk=pk)
-    context = {'details': details}
+    item = get_object_or_404(Eclipse, pk=pk)
+    context = {'eclipse': item}
     return render(request, 'Focuser/focuser_details.html', context)
