@@ -1,7 +1,7 @@
 {% extends 'Focuser/focuser_base.html' %}
 {% load staticfiles %}
 {% block templatecontent %}
-<section>
+    <section>
     <div class="flex-container">
         <form method="post">
             {% csrf_token %}
@@ -15,4 +15,6 @@
         <button class="primary-bright-button" type="button" onclick=" location.href='{% url 'listEclipses' %}'">Back to List</button>
     </div>
 </section>
+
+
 {% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'Focuser/focuser_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+
+    <h4>Details</h4>
+    <p>Type: {{eclipse.type}}</p>
+    <p>Subtype: {{eclipse.subtype}}</p>
+    <p>Date: {{eclipse.date}}</p>
+    <p>Details: {{eclipse.details}}</p>
+
+{% endblock %}

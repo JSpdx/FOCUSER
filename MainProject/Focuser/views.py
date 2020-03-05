@@ -21,7 +21,12 @@ def add_event(request):
 
 # View function that controls the main index page - list of jerseys
 def index(request):
-    get_eclipses = Eclipse.Eclipses.all()  # Gets all the current jerseys from the database
+    get_eclipses = Eclipse.Eclipses.all()  # Gets all the current eclipses from the database
     context = {'eclipses': get_eclipses}  # Creates a dictionary object of all the jerseys for the template
     return render(request, 'Focuser/focuser_index.html', context)
 
+def details(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Eclipse, pk=pk)
+    context = {'eclipse': item}
+    return render(request, 'Focuser/focuser_details.html', context)

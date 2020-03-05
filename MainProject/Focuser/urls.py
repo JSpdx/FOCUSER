@@ -8,4 +8,5 @@ urlpatterns = [
     path('', views.home, name='focuser'),  #home page
     path('Eclipses', views.index, name='listEclipses'),      #index of eclipses
     path('AddEvent', views.add_event, name='addEclipses'), #add new eclipse
+    path('<int:pk>/Details', views.details, name='details'),       #view eclipse details
 ]

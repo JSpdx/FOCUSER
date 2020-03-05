@@ -8,6 +8,7 @@ class Eclipse(models.Model):
     locations = models.CharField(max_length=100, blank=True)
     type = models.CharField(max_length=20, choices= ECLIPSE_TYPE)
     subtype = models.CharField(max_length=50, choices = ECLIPSE_SUBTYPE)
+    details = models.CharField(max_length=1000, blank=True)
 
     Eclipses = models.Manager()
 
