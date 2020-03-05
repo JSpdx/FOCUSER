@@ -23,11 +23,11 @@
                         {% if eclipse.authentic %} &#8730 {% endif %}
                     </td>
                     <td class="col-md"><a href="{{eclipse.pk}}/Details"><button class="primary-light-button">Details</button></a></td>
-                    <td class="col-md"><a href='{% url "edit" %}'><button class="primary-light-button">Edit</button></a></td> <!-- creates a link to details -->
+                    <td class="col-md"><a href="{{eclipse.pk}}/Edit"><button class="primary-light-button">Edit</button></a></td> <!-- creates a link to details -->
                 </tr>
             {% endfor %}
         </table>
-        <button class="primary-bright-button" type="button" onclick=" location.href='{% url 'addEclipses' %}'">Add to Collection</button>
+        <button class="primary-bright-button" type="button" onclick="location.href='{% url 'addEclipses' %}'">Add to Collection</button>
     </div>
 </section>
 {% endblock %}
