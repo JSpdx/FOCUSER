@@ -19,5 +19,5 @@ def album_add_view(request):
 
 def list(request):
     get_albums = Album.Albums.all()
-    context = {'title': get_albums}
+    context = {'Albums': get_albums}
     return render(request, 'VinylCollection/Album_List.html', context)
