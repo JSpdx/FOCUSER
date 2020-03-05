@@ -7,5 +7,13 @@
     {{ form }}
     <input type="submit" value="Add">
 </form>
+
+    <br>
+
+    <div class="btn-group">
+        <a href="{% url 'albumList' %}">View Albums</a>
+        <a href="{% url 'albumHome' %}">Back to Home</a>
+    </div>
+
 </section>
 {% endblock %}
