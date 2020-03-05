@@ -82,6 +82,19 @@ body{
     width: 50px;
     background: var(--standout);
 }
+
+/* ShipsWheel Animation */
+.wheelButtons img {
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+            transition:         transform .8s ease-in-out;
+}
+
+.wheelButtons img:hover {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
+
+
 /* ===== Navigation Bar styling  //  END =====*/
 
 /* ===========================================
@@ -385,6 +398,13 @@ div #container{
     width:auto;
 }
 
+.focuser_col {
+    margin: 10px;
+    align: center;
+
+}
+
+
 /*==========================================
             End Focuser Styling
 ===========================================*/
@@ -393,14 +413,48 @@ div #container{
     Specific styling Vinyl Collection App //  START
 =============================================*/
 
-.vinyl_collection_base {
+.vinyl_collection_title {
 text-align: center;
 }
 
-#Vinyl_Collection_homeInfo img {
+#Vinyl_Collection_base img {
 display: block;
 margin: 0 auto;
+height: 150px;
+width: 100%;
 }
+
+#homeInfo {
+text-align: center;
+}
+
+.btn-group button {
+  background-color: #636664;
+  border: 2px solid black;
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer;
+  float: left;
+  height: 55px;
+  width: 529px;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: darkGray;
+}
+
 
 /* =====  Specific styling Vinyl Collection App // End =====*/
 

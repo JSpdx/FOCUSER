@@ -1,0 +1,32 @@
+{% extends 'Focuser/focuser_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+<section >
+    <div class="flex-container" id="jerseyCollectionPage">
+        <table class="table-striped">
+            <tr id="column_header">
+                <th class="col-md">Date</th>
+                <th class="col-md">Locations</th>
+                <th class="col-md">Type</th>
+                <th class="col-md">Subtype</th>
+
+
+            </tr>
+            {% for eclipse in eclipses %}     <!-- creates a new row for each jersey in the collection -->
+                <tr>
+                    <td class="col-md">{{eclipse.date}}</td>
+                    <td class="col-md">{{eclipse.locations}}</td>
+                    <td class="col-md">{{eclipse.type}}</td>
+                    <td class="col-md">{{eclipse.subtype}}</td>
+
+                    <td class="col-md">
+                        {% if eclipse.authentic %} &#8730 {% endif %}
+                    </td>
+                    <td class="col-md"><a href="{{eclipse.pk}}/Details"><button class="primary-light-button">Details</button></a></td>    <!-- creates a link to details -->
+                </tr>
+            {% endfor %}
+        </table>
+        <button class="primary-bright-button" type="button" onclick=" location.href='{% url 'addEclipses' %}'">Add to Collection</button>
+    </div>
+</section>
+{% endblock %}
