@@ -22,7 +22,10 @@
                     <td class="col-md">{{plant.primary_color}}</td>
                     <td class="col-md">{{plant.height}}</td>
                     <td class="col-md">{{plant.year_sown}}</td>
+
+                    <td class="col-md"><a href="{{plant.pk}}/Details"><button class="primary-light-button">Details</button></a></td>    <!-- creates a link for that specific plant -->
                 </tr>
+
             {% endfor %}
         </table>
         <button class="primary-bright-button" type="button" onclick=" location.href='{% url 'create' %}'">Add to Garden</button>
