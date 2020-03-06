@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AlbumForm
 from .models import Album
 
@@ -21,3 +21,9 @@ def list(request):
     get_albums = Album.Albums.all()
     context = {'Albums': get_albums}
     return render(request, 'VinylCollection/Album_List.html', context)
+
+def details(request, pk):
+    pk = int(pk)
+    album = get_object_or_404(Album, pk=pk)
+    context={'Album':album}
+    return render(request,'VinylCollection/Album_Details.html', context)

@@ -496,6 +496,36 @@ text-align: center;
   padding: 15px
 }
 
+.album-table button {
+  background-color: #636664;
+  border: 2px solid black;
+  color: white;
+  padding: 4px 8px;
+  cursor: pointer;
+  float: left;
+  text-align: center;
+  text-decoration: none;
+}
+
+.album-table button:hover {
+  background-color: darkGray;
+}
+
+.album-table-details table, td, th{
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.album-table-details table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+.album-table-details th, td {
+  padding: 15px
+}
+
+
 
 /* =====  Specific styling Vinyl Collection App // End =====*/
 
