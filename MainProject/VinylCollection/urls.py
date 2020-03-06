@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.vinyl_collection_home, name='albumHome'),
     path('add', views.album_add_view, name='albumAdd'),
     path('list/', views.list, name='albumList'),
+    path('list/<int:pk>/details/', views.details, name='albumDetails'),
     ]

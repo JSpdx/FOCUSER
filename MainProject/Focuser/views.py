@@ -32,6 +32,30 @@ def details(request, pk):
     context = {'eclipse': item}
     return render(request, 'Focuser/focuser_details.html', context)
 
+def edit(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Eclipse, pk=pk)
+
+    form = EclipseForm(request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():  # Checks the form for errors, to make sure it's filled in
+            form.save()  # Saves the valid form/eclipse to the database
+            return redirect('listEclipses')  # Redirects to the index page, which is named 'footy' in the urls
+        else:
+            print(form.errors)  # Prints any errors for the posted form to the terminal
+            form = EclipseForm()  # Creates a new blank form
+
+    return render(request, 'Focuser/focuser_edit.html', {'form': form, 'item': item})
+
+def delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Eclipse, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('listEclipses')
+    else:
+        return render(request, 'Focuser/focuser_delete.html', {'item': item})
+
 def apod(request):
     response = requests.get("https://api.nasa.gov/planetary/apod")
     print(response)
