@@ -191,7 +191,8 @@ p {
 }
 
 .wrapper h5{
-background:var(--contrast);
+    background:var(--contrast);
+    display:inline-block;  /* Sets width of content */
 }
 
 .wrapper .tabNav, h5 {
@@ -203,6 +204,25 @@ background:var(--contrast);
     border-radius:20px;
 
 }
+
+/* tabNav Animations */
+
+.tabNav {  /* Adds a box shadow to give depth */
+    box-shadow: 0 2px 0 #403025;
+    position: relative;
+}
+
+.tabNav:hover {   /* Changes color on hover */
+    background-color: #2f3c48;
+}
+
+.tabNav:active {  /* Gives a pressed effect */
+    box-shadow: none;
+    top: 2px;
+}
+
+
+
 /* End of the stock CSS template */
 
 /* ===========================================
