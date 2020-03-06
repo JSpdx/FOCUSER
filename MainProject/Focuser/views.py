@@ -24,6 +24,7 @@ def add_event(request):
 def index(request):
     get_eclipses = Eclipse.Eclipses.all()  # Gets all the current eclipses from the database
     context = {'eclipses': get_eclipses}  # Creates a dictionary object of all the jerseys for the template
+    print (get_eclipses)
     return render(request, 'Focuser/focuser_index.html', context)
 
 def details(request, pk):
@@ -58,5 +59,6 @@ def delete(request, pk):
 
 def apod(request):
     response = requests.get('https://api.nasa.gov/planetary/apod?api_key=4a8sB9S0WoqXO6HstMj15Lgqu5isYYpys0675ygO')
-    print(response)
-    return render(request, 'Focuser/focuser_apod.html')
+    context = response.json()
+    print(context)
+    return render(request, 'Focuser/focuser_apod.html', context)
