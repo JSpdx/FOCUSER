@@ -1,0 +1,29 @@
+{% extends 'VinylCollection/VinylCollection_Base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+<section>
+
+  <div class="album-table">
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Artist</th>
+            </tr>
+            {% for Album in Albums %}
+            <tr>
+                <td>{{Album.title}}</td>
+                <td>{{Album.artist}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+  </div>
+
+    <br>
+
+    <div class="btn-group">
+        <a href="{% url 'albumAdd' %}">Add Another</a>
+        <a href="{% url 'albumHome' %}">Back to Home</a>
+    </div>
+
+</section>
+{% endblock %}
