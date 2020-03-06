@@ -33,5 +33,6 @@ def details(request, pk):
     return render(request, 'Focuser/focuser_details.html', context)
 
 def apod(request):
-    print(request)
+    response = requests.get("https://api.nasa.gov/planetary/apod")
+    print(response)
     return render(request, 'Focuser/focuser_apod.html')
