@@ -10,4 +10,5 @@ urlpatterns = [
     path('AddEvent', views.add_event, name='addEclipses'),     #add new eclipse
     path('<int:pk>/Details', views.details, name='details'),   #view eclipse details
     path('<int:pk>/Edit', views.edit, name='edit'),            #edit eclipses
+    path('<int:pk>/Delete', views.delete, name='delete'),      #delete eclipses
 ]

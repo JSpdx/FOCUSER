@@ -10,8 +10,10 @@
                     {{ form.as_table }} <!-- this only renders the td tags, still need the table tags -->
                 </table>
                 {{ form.non_field_errors }}
-                <button class="primary-bright-button" type="submit">Submit Changes</button>
+                <button class="primary-bright-button" type="submit">Submit Changes</button>                <!--Submit changes button-->
             </form>
+            <button class="primary-bright-button" onclick="location.href='{% url 'delete' pk=item.pk %}'">Delete</button>          <!--#Delete entry-->
+
             <hr />
             <button class="primary-bright-button" type="button" onclick=" location.href='{% url 'listEclipses' %}'">Back to List</button>
         </div>
