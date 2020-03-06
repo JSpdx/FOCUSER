@@ -2,6 +2,7 @@
 from .forms import EclipseForm
 from .models import Eclipse
 from django.shortcuts import render, redirect, get_object_or_404
+import requests
 
 def home(request):
     return render(request, 'Focuser/focuser_home.html')
@@ -30,3 +31,7 @@ def details(request, pk):
     item = get_object_or_404(Eclipse, pk=pk)
     context = {'eclipse': item}
     return render(request, 'Focuser/focuser_details.html', context)
+
+def apod(request):
+    print(request)
+    return render(request, 'Focuser/focuser_apod.html')
