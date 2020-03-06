@@ -2,30 +2,28 @@
 {% load staticfiles %}
 {% block templatecontent %}
 <section>
-
-  <div class="album-table">
+    <div class="album-table-details">
         <table>
             <tr>
                 <th>Title</th>
-                <th>Artist</th>
-                <th>Info</th>
-            </tr>
-            {% for Album in Albums %}
-            <tr>
                 <td>{{Album.title}}</td>
-                <td>{{Album.artist}}</td>
-                <td><a href="{{Album.pk}}/details"><button>Details</button></a></td>
             </tr>
-            {% endfor %}
+            <tr>
+                <th>Artist</th>
+                <td>{{Album.artist}}</td>
+            </tr>
         </table>
-  </div>
+    </div>
 
-    <br>
+    <div>
+        <!-- Scrape the album image later and show with details -->
+    </div>
+
+        <br>
 
     <div class="btn-group">
         <a href="{% url 'albumAdd' %}">Add Another</a>
-        <a href="{% url 'albumHome' %}">Back to Home</a>
+        <a href="{% url 'albumList' %}">Back to List</a>
     </div>
-
 </section>
 {% endblock %}
