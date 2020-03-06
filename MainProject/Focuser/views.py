@@ -57,6 +57,6 @@ def delete(request, pk):
         return render(request, 'Focuser/focuser_delete.html', {'item': item})
 
 def apod(request):
-    response = requests.get("https://api.nasa.gov/planetary/apod")
+    response = requests.get('https://api.nasa.gov/planetary/apod?api_key=4a8sB9S0WoqXO6HstMj15Lgqu5isYYpys0675ygO')
     print(response)
     return render(request, 'Focuser/focuser_apod.html')
