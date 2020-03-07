@@ -12,4 +12,5 @@ urlpatterns = [
     path('ApiService/', views.api_response, name='footyApi'),           #main page for API service with dropdowns
     path('<int:code>/Matches/', views.matches, name='footyMatches'),    #specific league page for matches
     path('MLSNews/', views.mls_news, name='MLSNews'),                   #data scraped news from MLS
-    ]
+]
+
