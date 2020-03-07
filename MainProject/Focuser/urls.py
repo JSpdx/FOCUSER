@@ -11,4 +11,5 @@ urlpatterns = [
     path('<int:pk>/Details', views.details, name='details'),   #view eclipse details
     path('<int:pk>/Edit', views.edit, name='edit'),            #edit eclipses
     path('<int:pk>/Delete', views.delete, name='delete'),      #delete eclipses
+    path('APOD', views.apod, name='apod')                      #astronomy picture of the day
 ]

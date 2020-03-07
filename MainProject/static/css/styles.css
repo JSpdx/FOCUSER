@@ -424,6 +424,20 @@ div #container{
 
 }
 
+.apod_container {
+    opacity: 1;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.apod_img {
+
+    opacity: 1;
+    width: 100%;
+}
 
 /*==========================================
             End Focuser Styling

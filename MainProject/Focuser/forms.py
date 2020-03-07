@@ -6,4 +6,3 @@ class EclipseForm(ModelForm):
     class Meta:
         model = Eclipse
         fields = '__all__'
-        

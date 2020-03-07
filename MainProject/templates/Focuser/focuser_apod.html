@@ -1,0 +1,26 @@
+{% extends 'Focuser/focuser_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+    <section>
+    <div class="flex-container">
+        <div class="apod_container">
+            <h4>{{title}}</h4>                              <!--displays the title from the API-->
+            <img class="apod_img" src="{{hdurl}}" <!--displays the image from the API-->
+
+            <h5></h5>
+            <p>{{explanation}}</p>                          <!--displays an explanation from the API-->
+        </div>
+        <form method="post">
+                {% csrf_token %}
+                <h5>Find another date</h5>
+                <p>ex: 2010-02-04</p>
+                <input type="text" name="date" ></input>
+                <button class="btn btn-danger" onclick="location.href='{% url 'apod' %}'">Submit</button>
+            </form>
+
+
+    </div>
+</section>
+
+
+{% endblock %}

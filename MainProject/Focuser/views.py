@@ -2,6 +2,7 @@
 from .forms import EclipseForm
 from .models import Eclipse
 from django.shortcuts import render, redirect, get_object_or_404
+import requests
 
 def home(request):
     return render(request, 'Focuser/focuser_home.html')
@@ -18,11 +19,11 @@ def add_event(request):
         form = EclipseForm()                     #Creates a new blank form
     return render(request, 'Focuser/focuser_create.html', {'form':form})
 
-
 # View function that controls the main index page - list of jerseys
 def index(request):
     get_eclipses = Eclipse.Eclipses.all()  # Gets all the current eclipses from the database
     context = {'eclipses': get_eclipses}  # Creates a dictionary object of all the jerseys for the template
+    print (get_eclipses)
     return render(request, 'Focuser/focuser_index.html', context)
 
 def details(request, pk):
@@ -54,3 +55,17 @@ def delete(request, pk):
         return redirect('listEclipses')
     else:
         return render(request, 'Focuser/focuser_delete.html', {'item': item})
+
+def apod(request):
+
+    response = requests.get('https://api.nasa.gov/planetary/apod?api_key=4a8sB9S0WoqXO6HstMj15Lgqu5isYYpys0675ygO')
+    context = response.json()
+
+    if request.method == 'POST':
+        if 'date' in request.POST:
+            user_date = request.POST['date']
+            response = requests.get('https://api.nasa.gov/planetary/apod?date={}&api_key=4a8sB9S0WoqXO6HstMj15Lgqu5isYYpys0675ygO'.format(user_date))
+            context = response.json()
+            return render(request, 'Focuser/focuser_apod.html', context)
+
+    return render(request, 'Focuser/focuser_apod.html', context)
