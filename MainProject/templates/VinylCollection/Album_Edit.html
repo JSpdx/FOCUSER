@@ -3,5 +3,14 @@
 {% block templatecontent %}
 <section>
 
+    <a href="{% url 'albumEdit' pk=post.pk %}"></a>
+    <input type="submit" value="Add">
+
+    <br>
+
+    <div class="btn-group">
+        <a href="{% url 'albumList' %}">View Albums</a>
+        <a href="{% url 'albumHome' %}">Back to Home</a>
+    </div>
 </section>
 {% endblock %}
