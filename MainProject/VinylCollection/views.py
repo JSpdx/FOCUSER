@@ -27,3 +27,17 @@ def details(request, pk):
     album = get_object_or_404(Album, pk=pk)
     context={'Album':album}
     return render(request,'VinylCollection/Album_Details.html', context)
+
+def edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.title = request.user
+            post.artist = request.user
+            post.save()
+            return redirect('albumDetails', pk=post.pk)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'VinylCollection/Album_Edit.html', {'form': form})
