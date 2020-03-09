@@ -29,15 +29,14 @@ def details(request, pk):
     return render(request,'VinylCollection/Album_Details.html', context)
 
 def edit(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+    pk = int(pk)
+    get_album = get_object_or_404(Album, pk=pk)
+    form = AlbumForm(request.POST or None, instance=item)
+    if request.method == 'POST':
         if form.is_valid():
-            post = form.save(commit=False)
-            post.title = request.user
-            post.artist = request.user
-            post.save()
-            return redirect('albumDetails', pk=post.pk)
-    else:
-        form = PostForm(instance=post)
-    return render(request, 'VinylCollection/Album_Edit.html', {'form': form})
+            form.save()
+            return redirect('albumList')
+        else:
+            print(form.erros)
+            form = AlbumForm()
+    return render(request, 'VinylCollection/Album_Edit.html', {'form': form, 'get_album': get_album})

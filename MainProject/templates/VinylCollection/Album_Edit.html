@@ -3,8 +3,11 @@
 {% block templatecontent %}
 <section>
 
-    <a href="{% url 'albumEdit' pk=post.pk %}"></a>
-    <input type="submit" value="Add">
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Add">
+    </form>
 
     <br>
 
