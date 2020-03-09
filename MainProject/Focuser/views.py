@@ -1,4 +1,4 @@
-
+from bs4 import BeautifulSoup
 from .forms import EclipseForm
 from .models import Eclipse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -69,3 +69,11 @@ def apod(request):
             return render(request, 'Focuser/focuser_apod.html', context)
 
     return render(request, 'Focuser/focuser_apod.html', context)
+
+def iss(request):
+    page = requests.get('https://blogs.nasa.gov/spacestation/feed/')
+
+    page
+    return render(request, 'Focuser/focuser_iss.html')
+
+
