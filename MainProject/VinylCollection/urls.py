@@ -7,4 +7,5 @@ urlpatterns = [
     path('list/', views.list, name='albumList'),
     path('<int:pk>/details/', views.details, name='albumDetails'),
     path('<int:pk>/edit/', views.edit, name='albumEdit'),
+    path('<int:pk>/delete/', views.delete, name='albumDelete'),
     ]

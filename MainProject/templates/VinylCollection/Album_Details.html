@@ -22,8 +22,8 @@
         <br>
 
     <div class="btn-group">
-        <a href="{% url 'albumAdd' %}">Add Another</a>
-        <a href="{% url 'albumEdit' pk=post.pk %}">Edit</a>
+        <a href="{% url 'albumEdit' pk=Album.pk %}">Edit</a>
+        <a href="{% url 'albumDelete' pk=Album.pk %}">Delete</a>
     </div>
 </section>
 {% endblock %}

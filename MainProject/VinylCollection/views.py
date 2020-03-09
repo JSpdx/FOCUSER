@@ -31,7 +31,7 @@ def details(request, pk):
 def edit(request, pk):
     pk = int(pk)
     get_album = get_object_or_404(Album, pk=pk)
-    form = AlbumForm(request.POST or None, instance=item)
+    form = AlbumForm(request.POST or None, instance=get_album)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -40,3 +40,12 @@ def edit(request, pk):
             print(form.erros)
             form = AlbumForm()
     return render(request, 'VinylCollection/Album_Edit.html', {'form': form, 'get_album': get_album})
+
+def delete(request, pk):
+    pk = int(pk)
+    del_album = get_object_or_404(Album, pk=pk)
+    if request.method == 'POST':
+        del_album.delete()
+        return redirect('albumList')
+    else:
+        return render(request, 'VinylCollection/Album_Delete.html', {'del_album': del_album})
