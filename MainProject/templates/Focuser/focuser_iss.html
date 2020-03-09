@@ -4,9 +4,10 @@
 <h1>{{title}}</h1>
 {{ content|safe }}
 <section >
+    <form method="post" >
+        {% csrf_token %}
+        <button class="btn btn-danger" onclick="location.href='{% url 'apod' %}'" name="prev"><<<</button>
 
-    <div class="flex-container" id="jerseyCollectionPage">
-        <p></p>
-    </div>
+    </form>
 </section>
 {% endblock %}

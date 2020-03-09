@@ -4,6 +4,8 @@ from .models import Eclipse
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
 
+iss_counter = 1
+
 def home(request):
     return render(request, 'Focuser/focuser_home.html')
 
@@ -70,17 +72,39 @@ def apod(request):
 
     return render(request, 'Focuser/focuser_apod.html', context)
 
+
+
 def iss(request):
+    global iss_counter
     page = requests.get('https://blogs.nasa.gov/spacestation/feed/')
     soup = BeautifulSoup(page.content, 'html.parser')
-
     #tag_list = list(soup.children)                                     # these lines are for parsing html. I used "find and find_all" instead.
     #types = [type(item) for item in list(tag_list)]                    #used to find the BeautifulSoup "Tag" object,
     #body = list(soup.children)[1]                                      #targets the tag object
+    if request.method == 'POST':
+        if 'prev' in request.POST:
+            iss_counter += 1
+            title = str(soup.find_all('title')[iss_counter].get_text())
+            content = str(soup.find_all('content:encoded')[iss_counter - 1])
+            context = {'title': title, 'content': content}
+            return render(request, 'Focuser/focuser_iss.html', context)
 
-    title = str(soup.find_all('title')[1].get_text())                   #extracts the headline
-    content = str(soup.find('content:encoded'))                         #extracts the page's content
+        else:
+            iss_counter -= 1
+            print(iss_counter)
+            title = str(soup.find_all('title')[iss_counter].get_text())
+            content = str(soup.find_all('content:encoded')[iss_counter - 1])
+            context = {'title': title, 'content': content}
+            return render(request, 'Focuser/focuser_iss.html', context)
+
+
+    title = str(soup.find_all('title')[1].get_text())  # extracts the headline
+    content = str(soup.find_all('content:encoded')[0])  # extracts the page's content
     context = {'title': title, 'content': content}
+    iss_counter = 1
+
+
     return render(request, 'Focuser/focuser_iss.html', context)
+
 
 
