@@ -38,3 +38,27 @@ def details_plant(request, pk):
     plant = get_object_or_404(Plant, pk=pk)   #Gets single instance of the plant from the database
     context={'plant':plant}                   #Creates dictionary object to pass the plant object
     return render(request,'plantPlanner/plant_details.html', context)
+
+def edit(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Plant, pk=pk)
+
+    form = PlantForm(request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():  # Checks the form for errors, to make sure it's filled in
+            form.save()  # Saves the valid form/eclipse to the database
+            return redirect('index')  # Redirects to the index page, which is named 'footy' in the urls
+        else:
+            print(form.errors)  # Prints any errors for the posted form to the terminal
+            form = PlantForm()  # Creates a new blank form
+
+    return render(request, 'plantPlanner/plant_edit.html', {'form': form, 'item': item})
+
+def delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Plant, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('index')
+    else:
+        return render(request, 'plantPlanner/plant_delete.html', {'item': item})
