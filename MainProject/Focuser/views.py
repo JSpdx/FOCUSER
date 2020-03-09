@@ -72,8 +72,16 @@ def apod(request):
 
 def iss(request):
     page = requests.get('https://blogs.nasa.gov/spacestation/feed/')
+    soup = BeautifulSoup(page.content, 'html.parser')
+    tag_list = list(soup.children)                                     # converts html to a list
+    types = [type(item) for item in list(tag_list)]                    #used to find the BeautifulSoup "Tag" object
+    print(types)
+    #tags = list(soup.children)[2]
+    #print (list(tags.children))
 
-    page
-    return render(request, 'Focuser/focuser_iss.html')
+
+
+
+    return render(request, 'Focuser/focuser_iss.html',)
 
 
