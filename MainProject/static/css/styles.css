@@ -435,6 +435,11 @@ div #container{
 
 }
 
+#index_background {
+    background: rgb(0,0,0);
+background: radial-gradient(circle, rgba(0,0,0,1) 14%, rgba(255,255,255,1) 16%, rgba(0,0,0,1) 19%);
+}
+
 .apod_container {
     display: block;
     margin-block-start: 1em;
