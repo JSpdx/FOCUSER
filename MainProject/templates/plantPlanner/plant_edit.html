@@ -12,7 +12,7 @@
                 {{ form.non_field_errors }}
                 <button class="primary-bright-button" type="submit">Submit Changes</button>                <!--Submit changes button-->
             </form>
-            <button class="primary-bright-button" onclick="location.href='{% url 'delete' pk=item.pk %}'">Delete</button>
+            <button class="primary-bright-button" onclick="location.href='{% url 'deletePlant' pk=item.pk %}'">Delete</button>          <!--#Delete entry-->
 
             <hr />
             <button class="primary-bright-button" type="button" onclick=" location.href='{% url 'index' %}'">Back to List</button>

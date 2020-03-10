@@ -10,5 +10,5 @@ urlpatterns = [
     path('index', views.index, name='index'), #index page
     path('<int:pk>/Details/', views.details_plant, name='details'),  # get details for a single jersey
     path('<int:pk>/Edit', views.edit, name='edit'),            #edit plant
-    path('<int:pk>/Delete', views.delete, name='delete'),
+    path('<int:pk>/DeletePlant', views.delete, name='deletePlant'),
 ]
