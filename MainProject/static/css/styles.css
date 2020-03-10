@@ -408,7 +408,7 @@ div #container{
     padding:0;
 }
 
-#container img {
+.focuser_background {
     border-radius: 50%;
     height:10%;
     height:500px;
@@ -417,7 +417,14 @@ div #container{
     margin:0;
     vertical-align:middle;
     width:auto;
+    filter: blur(10px);
 }
+
+.focused {
+    filter: blur(0px);
+    transition: all 4s ease-in-out;
+}
+
 
 .focuser_col {
     margin: 10px;
