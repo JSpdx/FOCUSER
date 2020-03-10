@@ -436,7 +436,6 @@ div #container{
 }
 
 .apod_container {
-    opacity: 1;
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -445,9 +444,18 @@ div #container{
 }
 
 .apod_img {
-
-    opacity: 1;
     width: 100%;
+    opacity: 0
+}
+
+.apod_img_transition {
+    opacity: 1;
+    transition: all 1.8s ease-in-out;
+}
+
+#apod_description {
+    font-size: 1.2em;
+    background-color: black;
 }
 
 .iss_container {
