@@ -411,17 +411,18 @@ div #container{
 .focuser_background {
     border-radius: 20%;
     height:10%;
-    height:500px;
+    height:600px;
 /*   padding: 80px;*/
     align: center;
     margin:0;
     vertical-align:middle;
-    width:10%;
+    width: 100%;
     filter: blur(10px);
+
 }
 
 .focused {
-    width: 50%;
+    width: auto;
     border-radius: 50%;
     filter: blur(0px);
     transition: all 4s ease-in-out;
@@ -449,6 +450,17 @@ div #container{
     width: 100%;
 }
 
+.iss_container {
+
+    background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(27,29,56,1) 50%, rgba(0,0,0,1) 100%);
+
+}
+
+.iss_title {
+    background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(27,29,56,1) 50%, rgba(0,0,0,1) 100%);
+}
 /*==========================================
             End Focuser Styling
 ===========================================*/

@@ -1,7 +1,9 @@
 {% extends 'Focuser/focuser_base.html' %}
 {% load staticfiles %}
 {% block templatecontent %}
-<h1>{{title}}</h1>
+
+<h1 class="iss_title">{{title}}</h1>
+<div class="iss_container">
 {{ content|safe }}
 <section >
     <form method="post" >
@@ -10,4 +12,5 @@
 
     </form>
 </section>
+</div>
 {% endblock %}
