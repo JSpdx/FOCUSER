@@ -1,0 +1,18 @@
+{% extends 'plantPlanner/plant_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+    <section>
+        <div class="flex-container" id="plant-Delete">
+            <h2>Are you sure you want to delete this plant?</h2> <!-- confirmation message -->
+            <form method="POST">
+                {% csrf_token %}
+                <button class="btn-danger" onclick="location.href='{% url 'deletePlant' pk=item.pk %}'">Delete</button>
+                <button class="primary-bright-button" type="button" onclick=" location.href='{% url 'index' %}'">Back to List</button>
+
+            </form>
+
+        </div>
+    </section>
+
+{% endblock %}
+
