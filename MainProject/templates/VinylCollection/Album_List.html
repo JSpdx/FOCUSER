@@ -14,7 +14,7 @@
             <tr>
                 <td>{{Album.title}}</td>
                 <td>{{Album.artist}}</td>
-                <td><a href="{{Album.pk}}/details"><button>Details</button></a></td>
+                <td><a href="{% url 'albumDetails' pk=Album.pk %}"><button>Details</button></a></td>
             </tr>
             {% endfor %}
         </table>
