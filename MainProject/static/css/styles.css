@@ -409,18 +409,20 @@ div #container{
 }
 
 .focuser_background {
-    border-radius: 50%;
+    border-radius: 20%;
     height:10%;
     height:500px;
 /*   padding: 80px;*/
     align: center;
     margin:0;
     vertical-align:middle;
-    width:auto;
+    width:10%;
     filter: blur(10px);
 }
 
 .focused {
+    width: 50%;
+    border-radius: 50%;
     filter: blur(0px);
     transition: all 4s ease-in-out;
 }
