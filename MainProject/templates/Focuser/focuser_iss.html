@@ -1,0 +1,13 @@
+{% extends 'Focuser/focuser_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+<h1>{{title}}</h1>
+{{ content|safe }}
+<section >
+    <form method="post" >
+        {% csrf_token %}
+        <button class="btn btn-danger" onclick="location.href='{% url 'apod' %}'" name="prev"><<<</button>
+
+    </form>
+</section>
+{% endblock %}
