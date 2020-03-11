@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from .forms import EclipseForm
+from .forms import EclipseForm, FavoriteForm
 from .models import Eclipse, Favorite
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
@@ -62,13 +62,18 @@ def apod(request):
 
     response = requests.get('https://api.nasa.gov/planetary/apod?api_key=4a8sB9S0WoqXO6HstMj15Lgqu5isYYpys0675ygO')
     context = response.json()
-
     if request.method == 'POST':
-        if 'date' in request.POST:
+        if 'date' in request.POST:                      # this IF statement renders a new page based on the user's input
             user_date = request.POST['date']
             response = requests.get('https://api.nasa.gov/planetary/apod?date={}&api_key=4a8sB9S0WoqXO6HstMj15Lgqu5isYYpys0675ygO'.format(user_date))
             context = response.json()
             return render(request, 'Focuser/focuser_apod.html', context)
+
+        elif 'explanation' in request.POST:             #this ELIF saves the current page to the Favorites model
+            form = FavoriteForm(request.POST or None)
+
+
+
 
     return render(request, 'Focuser/focuser_apod.html', context)
 
@@ -105,6 +110,7 @@ def iss(request):
 
 def favorites(request):
     get_favorites = Favorite.Favorites.all()
+
 
     return render(request, 'Focuser/focuser_favorites.html')
 

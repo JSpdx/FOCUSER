@@ -18,8 +18,8 @@ class Eclipse(models.Model):
 
 class Favorite(models.Model):
     title = models.CharField(max_length=100)
-    image_url = models.TextField(max_length=100)
-    explanation = models.TextField
+    image_url = models.CharField(max_length=100)
+    explanation = models.TextField(default="")
 
     Favorites = models.Manager()
 
