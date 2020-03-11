@@ -97,14 +97,12 @@ def iss(request):
             context = {'title': title, 'content': content}
             return render(request, 'Focuser/focuser_iss.html', context)
 
-
     title = str(soup.find_all('title')[1].get_text())  # extracts the headline
     content = str(soup.find_all('content:encoded')[0])  # extracts the page's content
     context = {'title': title, 'content': content}
     iss_counter = 1
-
-
     return render(request, 'Focuser/focuser_iss.html', context)
 
-
+def favorites(request):
+    return render(request, 'Focuser/focuser_favorites.html')
 
