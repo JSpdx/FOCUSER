@@ -17,6 +17,13 @@
                 <input type="text" name="date" ></input>
                 <button class="btn btn-danger" onclick="location.href='{% url 'apod' %}'">Submit</button>
         </form>
+        <form method ="post">
+            {% csrf_token %}
+            <input type="hidden" name="title" value="{{title}}">
+            <input type="hidden" name="explanation" value="{{explanation}}">
+            <input type="hidden" name="image" value="{{hdurl}}">
+            <button class="btn btn-danger">Save to Favorites</button>
+        </form>
 
 
     </div>
