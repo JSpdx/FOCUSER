@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from .forms import EclipseForm
-from .models import Eclipse
+from .models import Eclipse, Favorite
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
 
@@ -104,5 +104,7 @@ def iss(request):
     return render(request, 'Focuser/focuser_iss.html', context)
 
 def favorites(request):
+    get_favorites = Favorite.Favorites.all()
+
     return render(request, 'Focuser/focuser_favorites.html')
 
