@@ -8,11 +8,11 @@
             <img class="apod_img" src="{{hdurl}}">          <!--displays the image from the API-->
 
             <h5></h5>
-            <p>{{explanation}}</p>                          <!--displays an explanation from the API-->
+            <p id="apod_description">{{explanation}}</p>                          <!--displays an explanation from the API-->
         </div>
         <form method="post">
                 {% csrf_token %}
-                <h5>Find another date</h5>
+                <h5>Find another entry</h5>
                 <p>ex: 2010-02-04</p>
                 <input type="text" name="date" ></input>
                 <button class="btn btn-danger" onclick="location.href='{% url 'apod' %}'">Submit</button>
