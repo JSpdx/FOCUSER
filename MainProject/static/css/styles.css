@@ -408,16 +408,26 @@ div #container{
     padding:0;
 }
 
-#container img {
-    border-radius: 50%;
+.focuser_background {
+    border-radius: 20%;
     height:10%;
-    height:500px;
+    height:600px;
 /*   padding: 80px;*/
     align: center;
     margin:0;
     vertical-align:middle;
-    width:auto;
+    width: 100%;
+    filter: blur(10px);
+
 }
+
+.focused {
+    width: auto;
+    border-radius: 50%;
+    filter: blur(0px);
+    transition: all 4s ease-in-out;
+}
+
 
 .focuser_col {
     margin: 10px;
@@ -425,8 +435,12 @@ div #container{
 
 }
 
+.index_background {
+    background: rgb(0,0,0);
+background: radial-gradient(circle, rgba(0,0,0,1) 14%, rgba(255,255,255,1) 16%, rgba(0,0,0,1) 19%);
+}
+
 .apod_container {
-    opacity: 1;
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -435,11 +449,31 @@ div #container{
 }
 
 .apod_img {
-
-    opacity: 1;
     width: 100%;
+    opacity: 0
 }
 
+.apod_img_transition {
+    opacity: 1;
+    transition: all 1.8s ease-in-out;
+}
+
+#apod_description {
+    font-size: 1.2em;
+    background-color: black;
+}
+
+.iss_container {
+
+    background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(27,29,56,1) 50%, rgba(0,0,0,1) 100%);
+
+}
+
+.iss_title {
+    background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(27,29,56,1) 50%, rgba(0,0,0,1) 100%);
+}
 /*==========================================
             End Focuser Styling
 ===========================================*/
