@@ -58,6 +58,6 @@ def api_search(request):
         if 'album' in request.POST:
             find_album = request.POST['album']
             response = requests.get('https://itunes.apple.com/search?entity=album&term={}'.format(find_album))
-            context = response.json()
+            context = print(response.json())
             return render(request, 'VinylCollection/Album_API.html', context)
     return render(request, 'VinylCollection/Album_API.html', context)

@@ -7,10 +7,29 @@
                 {% csrf_token %}
                 <h5>Search for an Album:</h5>
                 <input type="text" name="album" ></input>
-                <button onclick="location.href='{% url 'api_search' %}'">Submit</button>
+                <button onclick="location.href='{% url 'albumAPI' %}'">Submit</button>
         </form>
 
 </section>
 {% endblock %}
 
-<!-- https://itunes.apple.com/search?entity=album&term=prince -->
+<!-- FOR REFERENCE: https://itunes.apple.com/search?entity=album&term=prince -->
+
+<!--
+What values I want to keep track of:
+
+    amgArtistID
+    artistName
+    CollectionName
+    artistViewUrl
+    artworkUrl60
+    collectionPrice
+    trackCount
+    copyright
+    country
+    currency
+    releaseDate
+    primaryGenreName
+
+END -->
+
