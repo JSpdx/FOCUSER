@@ -11,4 +11,5 @@ urlpatterns = [
     path('<int:pk>/Details/', views.details_plant, name='details'),  # get details for a single jersey
     path('<int:pk>/Edit', views.edit, name='edit'),            #edit plant
     path('<int:pk>/DeletePlant', views.delete, name='deletePlant'),
+    path('API', views.api, name='api'),
 ]

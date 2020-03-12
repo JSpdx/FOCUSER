@@ -1,0 +1,30 @@
+{% extends 'plantPlanner/plant_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+    <section>
+    <div class="flex-container">
+        <div class="trefle_container">
+            <h2>Trefle.io</h2>
+
+        </div>
+        <form method="post">
+                {% csrf_token %}
+                <h4>What plant?</h4>
+                <p>ex: tulip</p>
+                <input type="text" name="flower" ></input>
+
+
+                <button class="btn btn-danger" onclick="location.href='{% url 'api' %}'">Submit</button>
+        </form>
+        <div>
+            {% csrf_token %}
+            {% for item in context %}
+                <p>{{ context }}</p>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock %}

@@ -62,3 +62,27 @@ def delete(request, pk):
         return redirect('index')
     else:
         return render(request, 'plantPlanner/plant_delete.html', {'item': item})
+
+def api(request):
+
+    url = 'https://trefle.io/api/plants/?' # url to api to query a plant
+
+    params = {
+        'token': 'TnlvTmxtcWY1RkNsb2EwNUZqY0FGUT09',  # access token
+        'q': ''  # user's input is set to required parameter
+    }
+    response = requests.get(url, params=params)
+    context = {'response': response.json()}
+
+    if request.method == 'POST':
+        if 'flower' in request.POST:
+            select_flower = request.POST['flower']  # grabs user input and assigns it to select_flower
+            params = {
+                'token': 'TnlvTmxtcWY1RkNsb2EwNUZqY0FGUT09',  # access token
+                'q': select_flower  # user's input is set to required parameter
+            }
+            response = requests.get(url, params=params)
+            context = { 'response': response.json()  }
+            return render(request, 'plantPlanner/plant_api.html', context)
+
+    return render(request, 'plantPlanner/plant_api.html', context)
