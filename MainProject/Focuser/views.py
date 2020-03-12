@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
-from .forms import EclipseForm
-from .models import Eclipse
+from .forms import EclipseForm, FavoriteForm
+from .models import Eclipse, Favorite
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
 
@@ -24,7 +24,7 @@ def add_event(request):
 # View function that controls the main index page - list of jerseys
 def index(request):
     get_eclipses = Eclipse.Eclipses.all()  # Gets all the current eclipses from the database
-    context = {'eclipses': get_eclipses}  # Creates a dictionary object of all the jerseys for the template
+    context = {'eclipses': get_eclipses}  # Creates a dictionary object of all the eclipses for the template
     print (get_eclipses)
     return render(request, 'Focuser/focuser_index.html', context)
 
@@ -62,13 +62,17 @@ def apod(request):
 
     response = requests.get('https://api.nasa.gov/planetary/apod?api_key=4a8sB9S0WoqXO6HstMj15Lgqu5isYYpys0675ygO')
     context = response.json()
-
     if request.method == 'POST':
-        if 'date' in request.POST:
+        if 'date' in request.POST:                      # this IF statement renders a new page based on the user's input
             user_date = request.POST['date']
             response = requests.get('https://api.nasa.gov/planetary/apod?date={}&api_key=4a8sB9S0WoqXO6HstMj15Lgqu5isYYpys0675ygO'.format(user_date))
             context = response.json()
             return render(request, 'Focuser/focuser_apod.html', context)
+
+        elif 'explanation' in request.POST:             #this ELIF saves the current page to the Favorites model
+            form = FavoriteForm(request.POST or None)
+            if form.is_valid():
+                form.save()
 
     return render(request, 'Focuser/focuser_apod.html', context)
 
@@ -97,14 +101,22 @@ def iss(request):
             context = {'title': title, 'content': content}
             return render(request, 'Focuser/focuser_iss.html', context)
 
-
     title = str(soup.find_all('title')[1].get_text())  # extracts the headline
     content = str(soup.find_all('content:encoded')[0])  # extracts the page's content
     context = {'title': title, 'content': content}
     iss_counter = 1
-
-
     return render(request, 'Focuser/focuser_iss.html', context)
 
+def favorites(request):
+    get_favorites = Favorite.Favorites.all()
+    print(get_favorites)
+    context = {'favorite': get_favorites}
+    print(context)
+    return render(request, 'Focuser/focuser_favorites.html', context)
 
+def display_favorite(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Favorite, pk=pk)
+    context = {'favorite': item}
+    return render(request, 'Focuser/focuser_display_favorite.html', context)
 

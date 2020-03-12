@@ -1,0 +1,20 @@
+{% extends 'Focuser/focuser_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+<section >
+    <div class="flex-container index_background">
+        <table class="table-striped">
+            <tr id="column_header">
+                <th class="col-md">Title</th>
+            </tr>
+
+               {% for i in favorite %} <!-- creates a new row for each fave in the list -->
+                <tr>
+                    <td class="col-md"><a href="Favorites/{{i.pk}}">{{i.title}}</a></td>
+                </tr>
+                {% endfor %}
+        </table>
+        <button class="primary-bright-button" type="button" onclick="location.href='{% url 'addEclipses' %}'">Add to Collection</button>
+    </div>
+</section>
+{% endblock %}

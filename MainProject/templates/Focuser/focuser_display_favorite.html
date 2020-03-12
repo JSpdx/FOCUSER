@@ -1,0 +1,12 @@
+{% extends 'Focuser/focuser_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+    <div class="flex-container">
+        <div class="apod_container">
+            <h4>{{favorite.title}}</h4>                              <!--displays the title from the API-->
+            <img class="apod_img" src="{{favorite.image_url}}">          <!--displays the image from the API-->
+
+            <h5></h5>
+            <p id="apod_description">{{favorite.explanation}}</p>                          <!--displays an explanation from the API-->
+        </div>
+{% endblock %}

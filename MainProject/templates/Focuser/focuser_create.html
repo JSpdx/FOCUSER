@@ -8,7 +8,7 @@
             <table>
                 {{ form.as_table }} <!-- this only renders the td tags, still need the table tags -->
             </table>
-            {{ form.non_field_errors }}
+            {{ form.non_field_errors }} <!-- This will display an error if the form isn't filled correctly -->
             <button class="primary-bright-button" type="submit"> Add to List </button>
         </form>
         <hr />
