@@ -110,9 +110,86 @@ body{
     background:transparent;
 }
 
+/* Social Media Styling */
+
 .footer .item.social > a:hover {
     opacity:0.9;
 }
+
+.footer .item.social {  /* Sets column placement off window left */
+  padding: 0px;
+  -webkit-transform: translate(-270px, 0);
+  -moz-transform: translate(-270px, 0);
+  -ms-transform: translate(-270px, 0);
+  -o-transform: translate(-270px, 0);
+  transform: translate(-270px, 0);
+}
+
+.footer .item.social  > a { /* Sets animation content */
+  display: block;
+  margin: 5px;
+  background: rgba(0, 0, 0, 0.36);
+  width: 295px;  /* Sets right edge distance to screen left */
+  text-align: right;
+  padding: 10px;
+  -webkit-border-radius: 0 30px 30px 0;
+  -moz-border-radius: 0 30px 30px 0;
+  border-radius: 0 30px 30px 0;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+.footer .item.social > a:hover { /* Sets movement toward right */
+  -webkit-transform: translate(110px, 0);
+  -moz-transform: translate(110px, 0);
+  -ms-transform: translate(110px, 0);
+  -o-transform: translate(110px, 0);
+  transform: translate(110px, 0);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.footer .item.social a:hover  { /* Sets animation hover color change */
+  color: #f7c552;
+}
+
+.footer .item.social a:hover i { /* Rotates image on hover */
+  color: #f7c552;
+  background: white;
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+.footer .item.social a > i { /* Crops around icon */
+  margin-left: 10px;
+  color: #white; /* Color of icons and text */
+  background: #fff;
+  padding: .5px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  background: #ffffff;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+/* End Social Media Styling */
 
 .footer .copyright {
    font-style:italic;
@@ -121,6 +198,11 @@ body{
     margin-bottom:0;
     color:#fff;
 }
+
+
+
+
+
 /* =====  Footer styling  //  END =====*/
 
 /* Beginning of the stock CSS template */
