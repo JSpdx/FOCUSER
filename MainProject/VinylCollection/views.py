@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AlbumForm
 from .models import Album
+import requests
 
 # Create your views here.
 def vinyl_collection_home(request):
@@ -49,3 +50,14 @@ def delete(request, pk):
         return redirect('albumList')
     else:
         return render(request, 'VinylCollection/Album_Delete.html', {'del_album': del_album})
+
+def api_search(request):
+    response = requests.get('https://itunes.apple.com/search?')
+    context = response.json()
+    if request.method == 'POST':
+        if 'album' in request.POST:
+            find_album = request.POST['album']
+            response = requests.get('https://itunes.apple.com/search?entity=album&term={}'.format(find_album))
+            context = print(response.json())
+            return render(request, 'VinylCollection/Album_API.html', context)
+    return render(request, 'VinylCollection/Album_API.html', context)

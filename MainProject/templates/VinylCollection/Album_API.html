@@ -1,0 +1,35 @@
+{% extends 'VinylCollection/VinylCollection_Base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+<section>
+
+         <form method="post">
+                {% csrf_token %}
+                <h5>Search for an Album:</h5>
+                <input type="text" name="album" ></input>
+                <button onclick="location.href='{% url 'albumAPI' %}'">Submit</button>
+        </form>
+
+</section>
+{% endblock %}
+
+<!-- FOR REFERENCE: https://itunes.apple.com/search?entity=album&term=prince -->
+
+<!--
+What values I want to keep track of:
+
+    amgArtistID
+    artistName
+    CollectionName
+    artistViewUrl
+    artworkUrl60
+    collectionPrice
+    trackCount
+    copyright
+    country
+    currency
+    releaseDate
+    primaryGenreName
+
+END -->
+
