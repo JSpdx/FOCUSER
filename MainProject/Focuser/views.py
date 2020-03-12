@@ -114,3 +114,9 @@ def favorites(request):
     print(context)
     return render(request, 'Focuser/focuser_favorites.html', context)
 
+def display_favorite(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Favorite, pk=pk)
+    context = {'favorite': item}
+    return render(request, 'Focuser/focuser_display_favorite.html', context)
+

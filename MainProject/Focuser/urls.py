@@ -13,5 +13,6 @@ urlpatterns = [
     path('<int:pk>/Delete', views.delete, name='delete'),      #delete eclipses
     path('APOD', views.apod, name='apod'),                     #astronomy picture of the day
     path('ISSNews', views.iss, name='iss'),                    #scrapes RSS feed for news about the International Space Station
-    path('Favorites', views.favorites, name='favorites')       #Provides a layout of user saved favorite entries
+    path('Favorites', views.favorites, name='favorites'),       #Provides a layout of user saved favorite entries
+    path('Favorites/<int:pk>', views.display_favorite, name='displayFavorite'), #renders the page the user saved to their favorites list
 ]

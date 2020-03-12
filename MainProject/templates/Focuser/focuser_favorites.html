@@ -10,7 +10,7 @@
 
                {% for i in favorite %} <!-- creates a new row for each fave in the list -->
                 <tr>
-                    <td class="col-md"><a href="http://google.com">{{i.title}}</a></td>
+                    <td class="col-md"><a href="Favorites/{{i.pk}}">{{i.title}}</a></td>
                 </tr>
                 {% endfor %}
         </table>
