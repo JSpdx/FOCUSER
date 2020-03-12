@@ -24,7 +24,7 @@ def add_event(request):
 # View function that controls the main index page - list of jerseys
 def index(request):
     get_eclipses = Eclipse.Eclipses.all()  # Gets all the current eclipses from the database
-    context = {'eclipses': get_eclipses}  # Creates a dictionary object of all the jerseys for the template
+    context = {'eclipses': get_eclipses}  # Creates a dictionary object of all the eclipses for the template
     print (get_eclipses)
     return render(request, 'Focuser/focuser_index.html', context)
 
@@ -109,7 +109,8 @@ def iss(request):
 
 def favorites(request):
     get_favorites = Favorite.Favorites.all()
-
-
-    return render(request, 'Focuser/focuser_favorites.html')
+    print(get_favorites)
+    context = {'favorite': get_favorites}
+    print(context)
+    return render(request, 'Focuser/focuser_favorites.html', context)
 

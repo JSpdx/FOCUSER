@@ -24,4 +24,4 @@ class Favorite(models.Model):
     Favorites = models.Manager()
 
     def __str__(self):
-        return self.item
+        return self.title
