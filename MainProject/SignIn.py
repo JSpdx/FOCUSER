@@ -7,7 +7,7 @@
 
 # > Miles M. Hoover
 #   > Vinyl record collection app
-#   >API: https://www.discogs.com/developers
+#   >API: https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
 #   >Data scrape: https://www.billboard.com/charts/billboard-200
 
 # > Jon Shaw

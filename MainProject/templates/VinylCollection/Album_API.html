@@ -1,0 +1,16 @@
+{% extends 'VinylCollection/VinylCollection_Base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+<section>
+
+         <form method="post">
+                {% csrf_token %}
+                <h5>Search for an Album:</h5>
+                <input type="text" name="album" ></input>
+                <button onclick="location.href='{% url 'api_search' %}'">Submit</button>
+        </form>
+
+</section>
+{% endblock %}
+
+<!-- https://itunes.apple.com/search?entity=album&term=prince -->
