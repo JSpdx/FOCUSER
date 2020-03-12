@@ -18,8 +18,8 @@
         </form>
         <div>
             {% csrf_token %}
-            {% for item in context %}
-                <p>{{ context }}</p>
+            {% for item in response %}
+                <p>{{ item }}</p>
             {% endfor %}
         </div>
 
