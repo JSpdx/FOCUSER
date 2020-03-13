@@ -15,4 +15,5 @@ urlpatterns = [
     path('ISSNews', views.iss, name='iss'),                    #scrapes RSS feed for news about the International Space Station
     path('Favorites', views.favorites, name='favorites'),       #Provides a layout of user saved favorite entries
     path('Favorites/<int:pk>', views.display_favorite, name='displayFavorite'), #renders the page the user saved to their favorites list
+    path('MeteorShower', views.meteorshower, name='meteorshower'),
 ]
