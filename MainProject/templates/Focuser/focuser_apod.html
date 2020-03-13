@@ -17,6 +17,7 @@
                 <input type="text" name="date" ></input>
                 <button class="btn btn-danger" onclick="location.href='{% url 'apod' %}'">Submit</button>
         </form>
+        <button class="btn btn-danger" onclick="location.href='{% url 'apod' %}'">Submit</button>
         <form method ="post">
             {% csrf_token %}
             <input type="hidden" name="title" value="{{title}}">

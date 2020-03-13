@@ -73,6 +73,9 @@ def apod(request):
             context = response.json()
             return render(request, 'Focuser/focuser_apod.html', context)
 
+        if 'prev' in request.POST:
+
+
         elif 'explanation' in request.POST:             #this ELIF saves the current page to the Favorites model
             form = FavoriteForm(request.POST or None)
             if form.is_valid():
