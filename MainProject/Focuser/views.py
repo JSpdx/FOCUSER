@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from .forms import EclipseForm, FavoriteForm
 from .models import Eclipse, Favorite
 from django.shortcuts import render, redirect, get_object_or_404
-import requests
+import requests, wolframalpha
 
 iss_counter = 1
 
@@ -126,8 +126,11 @@ def display_favorite(request, pk):
 
 def meteorshower(request):
     global wolfram_key
-    response = requests.get('http://api.wolframalpha.com/v1/simple?appid={}&i=What+airplanes+are+flying+overhead%3F'.format(wolfram_key))
+    response = 'http://api.wolframalpha.com/v1/simple?appid={}&i=where+is+the+next+meteor+shower%3F'.format(wolfram_key)
+    #response = requests.get('http://api.wolframalpha.com/v1/simple?appid={}&i=What+airplanes+are+flying+overhead%3F'.format(wolfram_key))
+
+    print(response)
     context = {'response':response}
-    print (response)
+    #print (response.headers['Content-Type'])
     return render(request, 'Focuser/focuser_meteor_shower.html', context)
 
