@@ -6,6 +6,10 @@ import requests
 
 iss_counter = 1
 
+
+nasa_key = '4a8sB9S0WoqXO6HstMj15Lgqu5isYYpys0675ygO'
+wolfram_key = '3AA74X-3EAREX5KRP'
+
 def home(request):
     return render(request, 'Focuser/focuser_home.html')
 
@@ -121,8 +125,9 @@ def display_favorite(request, pk):
     return render(request, 'Focuser/focuser_display_favorite.html', context)
 
 def meteorshower(request):
-    response = requests.get('http://api.wolframalpha.com/v1/simple?appid=DEMO&i=What+airplanes+are+flying+overhead%3F')
-    context = response
+    global wolfram_key
+    response = requests.get('http://api.wolframalpha.com/v1/simple?appid={}&i=What+airplanes+are+flying+overhead%3F'.format(wolfram_key))
+    context = {'response':response}
     print (response)
-    return render(request, 'Focuser/focuser_meteor_shower.html')
+    return render(request, 'Focuser/focuser_meteor_shower.html', context)
 
