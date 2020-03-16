@@ -13,23 +13,46 @@ During a 2 week sprint at the Tech Academy, I used Python and Django to create a
 - Retrieves information from the International Space Station's RSS feed using the BeautifulSoup webscraping package
 	
 
-## Technologies/Practices- Used the MVC/MTV framework Django to build a web application in Python 
+## Technologies/Practices
+- Django MTV/MVC framework 
 - Integrated APIs from NASA and Wolfram Alpha to add dynamic, self-updating features to the application
-- USED HTML GET and POST methods to add state to pages.
-- Used SQLite RDBMS to store form entries, and user selected favorites 
-- Used Virtualenv virtual environment to maintain a consistent and compatible development environment
-- Used Agile methodologies throughout development including daily standups and user stories to keep production moving forward
-- Used Azure DevOps as a platform for project management
-- Used Git to maintain code integrity in a team with multiple developers
+- Webscraping package BeautifulSoup
+- RESTful architecture, combined HTML GET and POST methods with IF/ELSE statements in Python to add state to pages.
+- RDBMS SQLite to store form entries, and user selected favorites 
+- Virtualenv virtual environment to maintain a consistent and compatible development environment
+- Agile pracices used throughout development including daily standups and user stories to keep production moving forward
+- Azure DevOps as a platform for project management
+- Git for version control, to maintain code integrity in a team with multiple developers
+
 ###Languages used:
 - Python
 - Javascript
 - HTML and CSS
 
 ## Highlights
-	'''
+'''
+<table class="table-striped">
+            <tr id="column_header">
+                <th class="col-md">Date</th>
+                <th class="col-md">Locations</th>
+                <th class="col-md">Type</th>
+                <th class="col-md">Subtype</th>
 
-asdasdfs
+
+            </tr>
+            {% for eclipse in eclipses %}     <!-- creates a new row for each eclipse event stored-->
+                <tr>
+                    <td class="col-md">{{eclipse.date}}</td>
+                    <td class="col-md">{{eclipse.locations}}</td>
+                    <td class="col-md">{{eclipse.type}}</td>
+                    <td class="col-md">{{eclipse.subtype}}</td>
+
+                    <td class="col-md"><a href="{{eclipse.pk}}/Details"><button class="primary-light-button">Details</button></a></td>
+                    <td class="col-md"><a href="{{eclipse.pk}}/Edit"><button class="primary-light-button">Edit</button></a></td> <!-- creates a link to details -->
+                </tr>
+            {% endfor %}
+        </table>
+```
 
 
 This project proved to be a great learning opportunity for me. Working on a project with multiple people gave me some good experience utilizing version control, 
