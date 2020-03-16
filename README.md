@@ -6,11 +6,11 @@ a web app for displaying astronomy information I built using Django, API's from 
 During a 2 week sprint at the Tech Academy, I used Python and Django to create a web app that displays information for the amateur astronomer, and space nerd.
 
 ## Functionality
-	- Provides a list of upcoming eclipses that can be manually stored, edited and deleted in a SQLite database,
-	- Displays a picture and description from Nasa's APOD (astronomy picture of the day), 
-	- Allows users to store their favorite APOD entries in the databse,
-	- Retrieves information about upcoming meteor showers using Wolfram Alpha's API
-	- Retrieves information from the International Space Station's RSS feed using the BeautifulSoup webscraping package
+- Provides a list of upcoming eclipses that can be manually stored, edited and deleted in a SQLite database,
+- Displays a picture and description from Nasa's APOD (astronomy picture of the day), 
+- Allows users to store their favorite APOD entries in the databse,
+- Retrieves information about upcoming meteor showers using Wolfram Alpha's API
+- Retrieves information from the International Space Station's RSS feed using the BeautifulSoup webscraping package
 	
 
 ## Technologies/Practices
@@ -28,9 +28,15 @@ During a 2 week sprint at the Tech Academy, I used Python and Django to create a
 	- Javascript
 	- HTML and CSS
 
+## Highlights
+	'''
+
+asdasdfs
+
+
 This project proved to be a great learning opportunity for me. Working on a project with multiple people gave me some good experience utilizing version control, 
-and successfully merging conflicts. Learning to use an MVC like Django (technically MTV) was very beneficial too. I have since been exposed to other MVC framworks such as React, and the learning curve
-was greatly reduced. I learned
+and successfully merging conflicts. Learning to use an MVC like Django (technically MTV) was very beneficial too. I have since been exposed to other MVC frameworks like React, and the learning curve
+was greatly reduced.
 
 
 Working on a legacy codebase was a great learning oppertunity for fixing bugs, cleaning up code, and adding requested features. 
