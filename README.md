@@ -13,20 +13,18 @@ During a 2 week sprint at the Tech Academy, I used Python and Django to create a
 - Retrieves information from the International Space Station's RSS feed using the BeautifulSoup webscraping package
 	
 
-## Technologies/Practices
-	- Used the MVC/MTV framework Django to build a web application in Python 
-	- Integrated APIs from NASA and Wolfram Alpha to add dynamic, self-updating features to the application
-	- USED HTML GET and POST methods to add state to pages.
-	- Used SQLite RDBMS to store form entries, and user selected favorites 
-	- Used Virtualenv virtual environment to maintain a consistent and compatible development environment
-	- Used Agile methodologies throughout development including daily standups and user stories to keep production moving forward
-	- Used Azure DevOps as a platform for project management
-	- Used Git to maintain code integrity in a team with multiple developers
-	
-- Languages used:
-	- Python
-	- Javascript
-	- HTML and CSS
+## Technologies/Practices- Used the MVC/MTV framework Django to build a web application in Python 
+- Integrated APIs from NASA and Wolfram Alpha to add dynamic, self-updating features to the application
+- USED HTML GET and POST methods to add state to pages.
+- Used SQLite RDBMS to store form entries, and user selected favorites 
+- Used Virtualenv virtual environment to maintain a consistent and compatible development environment
+- Used Agile methodologies throughout development including daily standups and user stories to keep production moving forward
+- Used Azure DevOps as a platform for project management
+- Used Git to maintain code integrity in a team with multiple developers
+###Languages used:
+- Python
+- Javascript
+- HTML and CSS
 
 ## Highlights
 	'''
