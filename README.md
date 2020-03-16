@@ -15,8 +15,9 @@ During a 2 week sprint at the Tech Academy, I used Python and Django to create a
 
 ## Technologies/Practices
 - Django MTV/MVC framework 
-- Integrated APIs from NASA and Wolfram Alpha to add dynamic, self-updating features to the application
-- Webscraping package BeautifulSoup
+- Used APIs from NASA and Wolfram Alpha to add dynamic, self-updating features to the application
+- Parsed JSON to retrieve the desired information from the API
+- Webscraping package BeautifulSoup, used to get data from an RSS
 - RESTful architecture, combined HTML GET and POST methods with IF/ELSE statements in Python to add state to pages.
 - RDBMS SQLite to store form entries, and user selected favorites 
 - Virtualenv virtual environment to maintain a consistent and compatible development environment
@@ -30,16 +31,19 @@ During a 2 week sprint at the Tech Academy, I used Python and Django to create a
 - HTML and CSS
 
 ## Highlights
-'''
-<table class="table-striped">
-            <tr id="column_header">
+
+#### Using Django's built in FOR loop tags, I was able to quickly and efficiently create an HTML table that would automatically display all of the eclipse events stored in the database, and reflect an added or subtracted item.
+
+```
+	 <table class="table-striped">
+            
+	    <tr id="column_header">
                 <th class="col-md">Date</th>
                 <th class="col-md">Locations</th>
                 <th class="col-md">Type</th>
                 <th class="col-md">Subtype</th>
+	    </tr>
 
-
-            </tr>
             {% for eclipse in eclipses %}     <!-- creates a new row for each eclipse event stored-->
                 <tr>
                     <td class="col-md">{{eclipse.date}}</td>
@@ -48,11 +52,51 @@ During a 2 week sprint at the Tech Academy, I used Python and Django to create a
                     <td class="col-md">{{eclipse.subtype}}</td>
 
                     <td class="col-md"><a href="{{eclipse.pk}}/Details"><button class="primary-light-button">Details</button></a></td>
-                    <td class="col-md"><a href="{{eclipse.pk}}/Edit"><button class="primary-light-button">Edit</button></a></td> <!-- creates a link to details -->
+                    <td class="col-md"><a href="{{eclipse.pk}}/Edit"><button class="primary-light-button">Edit</button></a></td>
                 </tr>
             {% endfor %}
         </table>
 ```
+
+#### Using Django tags and hidden HTML forms, I was able to pass the API data being displayed on that page to be saved in the DB.
+
+HTML:
+```
+
+	<form method ="post">
+            {% csrf_token %}
+            <input type="hidden" name="title" value="{{title}}">
+            <input type="hidden" name="explanation" value="{{explanation}}">
+            <input type="hidden" name="image_url" value="{{hdurl}}">
+            <button class="btn btn-danger">Save to Favorites</button>
+        </form>
+
+```
+
+views.py:
+```
+ def apod(request):
+
+    response = requests.get('https://api.nasa.gov/planetary/apod?api_key=4a8sB9S0WoqXO6HstMj15Lgqu5isYYpys0675ygO')
+    context = response.json()
+    if request.method == 'POST':
+       
+	 if 'date' in request.POST:                      # this IF statement renders a new page based on the user's input
+            user_date = request.POST['date']
+            response = requests.get('https://api.nasa.gov/planetary/apod?date={}&api_key=4a8sB9S0WoqXO6HstMj15Lgqu5isYYpys0675ygO'.format(user_date))
+            context = response.json()
+            return render(request, 'Focuser/focuser_apod.html', context)
+
+        elif 'explanation' in request.POST:             # this ELIF saves the current page to the Favorites model
+            form = FavoriteForm(request.POST or None)
+            if form.is_valid():
+                form.save()
+
+    return render(request, 'Focuser/focuser_apod.html', context)
+```
+
+
+
 
 
 This project proved to be a great learning opportunity for me. Working on a project with multiple people gave me some good experience utilizing version control, 
