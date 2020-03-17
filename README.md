@@ -4,6 +4,7 @@ a web app for displaying astronomy information I built using Django, API's from 
 
 ## Introduction
 During a 2 week sprint at the Tech Academy, I used Python and Django to create a web app that displays information for the amateur astronomer, and space nerd.
+(self congratulatory statement incoming) I was the 2nd student ever to complete all 12 user stories during the sprint.
 
 ## Functionality
 - Provides a list of upcoming eclipses that can be manually stored, edited and deleted in a SQLite database,
@@ -30,6 +31,25 @@ During a 2 week sprint at the Tech Academy, I used Python and Django to create a
 - Python
 - Javascript
 - HTML and CSS
+
+##Stories
+- Create a new app for the project, named appropriately for what you are tracking, and get it to display a home page with basic content.
+- Create a model for the collection item you will be tracking and add the ability to create a new item.
+- Display the information from the database in an index page.
+- Create a details page that will show the details of any single item from within the database, as selected by the user. Link this to the index page for each item.
+- Allow for edits and delete functions to be done from the details page or from separate pages. Have confirmation before deleting.
+- Connect to an API and get the JSON response, add in a template for displaying the information.
+- Parse through the JSON file returned and display the information you want to display. Make additional queries to the API as necessary. Add a link from your app's home page.
+- Create a new template for displaying information sourced from another website. Use Beautiful Soup to data scrape the site and find the relevant information.
+- Parse through the html returned and display the information you want to display. Make sure you are getting into the individual elements and stripping away any formatting you don't want. Add a link from your app's home page.
+- Go through your various templates and add improvements to the UI/UX. This may include hover effects, pop-ups, animations, changes to the existing styling, etc. Show off your creativity and styling ability.
+- Allow the user to save "favorites" of item either from the information detailed from the API or from Beautiful Soup. This could mean working with the existing model or creating a new one to pull the information from the response, create the appropriate object, and add it to the database. 
+- Congratulations! You've hit the point where we're out of standardize stories. Use the Discussion section below to describe the story you'd like to complete with your app. Your instructor will respond with and questions or suggestions.
+
+
+
+
+
 
 ## Highlights
 
