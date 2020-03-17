@@ -24,6 +24,7 @@ During a 2 week sprint at the Tech Academy, I used Python and Django to create a
 - Agile pracices used throughout development including daily standups and user stories to keep production moving forward
 - Azure DevOps as a platform for project management
 - Git for version control, to maintain code integrity in a team with multiple developers
+- Markdown to format the README
 
 ###Languages used:
 - Python
@@ -32,8 +33,9 @@ During a 2 week sprint at the Tech Academy, I used Python and Django to create a
 
 ## Highlights
 
-#### Using Django's built in FOR loop tags, I was able to quickly and efficiently create an HTML table that would automatically display all of the eclipse events stored in the database, and reflect an added or subtracted item.
+**Using Django's built in FOR loop tags, I was able to quickly and efficiently create an HTML table that would automatically display all of the eclipse events stored in the database, and reflect an added or subtracted item.**
 
+/templates/Focuser/focuser_index.html
 ```
 	 <table class="table-striped">
             
@@ -58,9 +60,9 @@ During a 2 week sprint at the Tech Academy, I used Python and Django to create a
         </table>
 ```
 
-#### Using Django tags and hidden HTML forms, I was able to pass the API data being displayed on that page to be saved in the DB.
+**Using Django tags and hidden HTML forms, I was able to pass the API data being displayed on that page to be saved in the DB.**
 
-HTML:
+/templates/Focuser/focuser_apod.html:
 ```
 
 	<form method ="post">
@@ -73,7 +75,7 @@ HTML:
 
 ```
 
-views.py:
+/Focuser/views.py:
 ```
  def apod(request):
 
@@ -93,9 +95,45 @@ views.py:
                 form.save()
 
     return render(request, 'Focuser/focuser_apod.html', context)
+
 ```
 
+**Here I used BeautifulSoup to parse the html provided by a daily news feed RSS, and create a dynamic webpage.
+ I used a counter to navigate backwards and forwards through the desired HTML tags to view older or newer entries.
 
+```
+iss_counter = 1                                                        #used this global variable as a counter to increment and decrement the index containing page entries.
+def iss(request):
+    global iss_counter 
+    page = requests.get('https://blogs.nasa.gov/spacestation/feed/')
+    soup = BeautifulSoup(page.content, 'html.parser')
+    
+    #tag_list = list(soup.children)                                     # these 3 lines not used. They illustrate another method for parsing html. I used "find and find_all" instead.
+    #types = [type(item) for item in list(tag_list)]                    #used to find the BeautifulSoup "Tag" object,
+    #body = list(soup.children)[1]                                      #targets the tag object
+    
+    if request.method == 'POST':
+        if 'prev' in request.POST:
+            iss_counter += 1
+            title = str(soup.find_all('title')[iss_counter].get_text())
+            content = str(soup.find_all('content:encoded')[iss_counter - 1])
+            context = {'title': title, 'content': content}
+            return render(request, 'Focuser/focuser_iss.html', context)
+
+        else:
+            iss_counter -= 1
+            print(iss_counter)
+            title = str(soup.find_all('title')[iss_counter].get_text())
+            content = str(soup.find_all('content:encoded')[iss_counter - 1])
+            context = {'title': title, 'content': content}
+            return render(request, 'Focuser/focuser_iss.html', context)
+
+    title = str(soup.find_all('title')[1].get_text())  # extracts the headline
+    content = str(soup.find_all('content:encoded')[0])  # extracts the page's content
+    context = {'title': title, 'content': content}
+    iss_counter = 1
+    return render(request, 'Focuser/focuser_iss.html', context)
+```
 
 
 
