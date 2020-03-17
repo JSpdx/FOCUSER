@@ -24,7 +24,7 @@ During a 2 week sprint at the Tech Academy, I used Python and Django to create a
 - Agile pracices used throughout development including daily standups and user stories to keep production moving forward
 - Azure DevOps as a platform for project management
 - Git for version control, to maintain code integrity in a team with multiple developers
-- Markdown to format the README
+- Markdown for formatting the github README
 
 ###Languages used:
 - Python
@@ -99,7 +99,8 @@ During a 2 week sprint at the Tech Academy, I used Python and Django to create a
 ```
 
 **Here I used BeautifulSoup to parse the html provided by a daily news feed RSS, and create a dynamic webpage.
- I used a counter to navigate backwards and forwards through the desired HTML tags to view older or newer entries.
+By changing the HTML request method to POST, I was able to create branching IF statements, adding logic to my application 
+ I used a counter to navigate backwards and forwards through the desired HTML tags to view older or newer entries.**
 
 ```
 iss_counter = 1                                                        #used this global variable as a counter to increment and decrement the index containing page entries.
@@ -112,8 +113,8 @@ def iss(request):
     #types = [type(item) for item in list(tag_list)]                    #used to find the BeautifulSoup "Tag" object,
     #body = list(soup.children)[1]                                      #targets the tag object
     
-    if request.method == 'POST':
-        if 'prev' in request.POST:
+    if request.method == 'POST':					# By changing the HTML request method to POST, I was able to create a branching IF statements, adding logic to my application 
+        if 'prev' in request.POST:					
             iss_counter += 1
             title = str(soup.find_all('title')[iss_counter].get_text())
             content = str(soup.find_all('content:encoded')[iss_counter - 1])
@@ -134,6 +135,31 @@ def iss(request):
     iss_counter = 1
     return render(request, 'Focuser/focuser_iss.html', context)
 ```
+
+**I was able to use a primary key generated in the database to 
+
+/templates/Focuser/focuser_index.html:
+```
+{% for eclipse in eclipses %}     <!-- creates a new row for each eclipse event stored-->
+                <tr>
+                    <td class="col-md">{{eclipse.date}}</td>
+                    <td class="col-md">{{eclipse.locations}}</td>
+                    <td class="col-md">{{eclipse.type}}</td>
+                    <td class="col-md">{{eclipse.subtype}}</td>
+
+                    <td class="col-md"><a href="{{eclipse.pk}}/Details"><button class="primary-light-button">Details</button></a></td> <!-- Creates a button that navigates to a page specific to this item's primary key -->
+                    <td class="col-md"><a href="{{eclipse.pk}}/Edit"><button class="primary-light-button">Edit</button></a></td> 
+                </tr>
+{% endfor %}
+
+```
+In the url routing page, the primary key `<int:pk>` is used to create the url pattern, then passed into the `details` view as an argument.
+/Focuser/urls.py:
+
+```
+path('<int:pk>/Details', views.details, name='details'),
+```
+
 
 
 
