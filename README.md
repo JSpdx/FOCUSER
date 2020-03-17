@@ -1,5 +1,5 @@
 # FOCUSER
-a web app for displaying astronomy information I built using Django, API's from NASA and Wolfram Alpha, and the webscraping package Beautifulsoup
+a web app for displaying astronomy information I built using Django, API's from NASA and Wolfram Alpha, and the webscraping package BeautifulSoup
 
 
 ## Introduction
@@ -159,23 +159,21 @@ In the url routing page, the primary key `<int:pk>` is used to create the url pa
 ```
 path('<int:pk>/Details', views.details, name='details'),
 ```
+Once passed as an argument into the `details` view, the primary key is then used to retrieve the pertaining item from the database and send it to be displayed.
+```
+def details(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Eclipse, pk=pk)
+    context = {'eclipse': item}
+    return render(request, 'Focuser/focuser_details.html', context)
+```
 
 
-
+### Summary
 
 This project proved to be a great learning opportunity for me. Working on a project with multiple people gave me some good experience utilizing version control, 
-and successfully merging conflicts. Learning to use an MVC like Django (technically MTV) was very beneficial too. I have since been exposed to other MVC frameworks like React, and the learning curve
-was greatly reduced.
-
-
-Working on a legacy codebase was a great learning oppertunity for fixing bugs, cleaning up code, and adding requested features. 
-There were some big changes that could have been a large time sink, but we used what we had to deliver what was needed on time. 
-I saw how a good developer works with what they have to make a quality product. I worked on several back end stories that I am very proud of. 
-Because much of the site had already been built, there were also a good deal of front end stories and UX improvements that needed to be completed, all of varying degrees of difficulty. 
-Everyone on the team had a chance to work on front end and back end stories. Over the two week sprint I also had the opportunity to work on some other project management and
-team programming skills that I'm confident I will use again and again on future projects.
-
-Below are descriptions of the stories I worked on, along with code snippets and navigation links. I also have some full code files in this repo for the larger functionalities I implemented.
+and successfully merging conflicts. Learning to use an MVC like Django (technically MTV) was very beneficial too.
+I have since been exposed to other MVC frameworks like React, and because of my experience here with Django, the learning curve was greatly reduced. 
 
 
 
@@ -183,14 +181,10 @@ Below are descriptions of the stories I worked on, along with code snippets and 
 
 
 
-
-
-
-
-
+#### Running the project
 Project needs virtualenv installed in order to run.
 
-1) From environments, run scripts\activate
+1)From environments, run scripts\activate
 
 2) From FOCUSER\mainproject, run python manage.py makemigrations,
 			    then python manage.py migrate
