@@ -1,5 +1,5 @@
 # FOCUSER
-a web app for displaying astronomy information I built using Django, API's from NASA and Wolfram Alpha, and the webscraping package BeautifulSoup
+A web app for displaying astronomy information I built using Django, API's from NASA and Wolfram Alpha, and the webscraping package BeautifulSoup
 
 
 ## Introduction
