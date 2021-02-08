@@ -9,7 +9,7 @@
 }
 
 body{
-    background: linear-gradient(180deg, black, transparent 20%), linear-gradient(360deg, #000, transparent 20%), #090c1f url(/static/images/wall-ship.jpg) no-repeat center center fixed;
+    background: linear-gradient(180deg, black, transparent 20%), linear-gradient(360deg, #000, transparent 20%), #090c1f url(/static/images/starfield.jpg) no-repeat center center fixed;
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -29,7 +29,7 @@ body{
     letter-spacing:1px;
     background: #0e0d0db8;
     padding: 10px 40px;
-    border: solid 1px var(--lightGray);
+    /*border: solid 1px var(--lightGray);*/
     border-radius: 20px;
 }
 
@@ -347,7 +347,7 @@ div #container{
 
 .index_background {
     background: rgb(0,0,0);
-background: radial-gradient(circle, rgba(0,0,0,1) 14%, rgba(255,255,255,1) 16%, rgba(0,0,0,1) 19%);
+background: radial-gradient(circle at 40%, rgba(0,0,0,1) 14%, rgba(255,255,255,1) 16%, rgba(0,0,0,1) 19%);
 }
 
 .apod_container {
