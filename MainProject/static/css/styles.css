@@ -315,7 +315,7 @@ p {
 div #container{
     text-align: center;
     position: relative;
-    padding:0;
+    padding: 10em;
 }
 
 .focuser_background {
