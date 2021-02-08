@@ -338,6 +338,11 @@ div #container{
     transition: all 4s ease-in-out;
 }
 
+a {
+    font-family: 'Russo One', sans-serif;
+    /*font-family: 'Press Start 2P', cursive;*/
+    font-family: 'Audiowide', cursive;
+}
 
 .focuser_col {
     margin: 10px;
