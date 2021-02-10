@@ -29,7 +29,6 @@ def add_event(request):
 def index(request):
     get_eclipses = Eclipse.Eclipses.all()  # Gets all the current eclipses from the database
     context = {'eclipses': get_eclipses}  # Creates a dictionary object of all the eclipses for the template
-    print (get_eclipses)
     return render(request, 'Focuser/focuser_index.html', context)
 
 def details(request, pk):
@@ -48,7 +47,6 @@ def edit(request, pk):
             form.save()  # Saves the valid form/eclipse to the database
             return redirect('listEclipses')  # Redirects to the index page, which is named 'footy' in the urls
         else:
-            print(form.errors)  # Prints any errors for the posted form to the terminal
             form = EclipseForm()  # Creates a new blank form
 
     return render(request, 'Focuser/focuser_edit.html', {'form': form, 'item': item})
@@ -113,7 +111,6 @@ def iss(request):
 
 def favorites(request):
     get_favorites = Favorite.Favorites.all()
-    print(get_favorites)
     context = {'favorite': get_favorites}
     print(context)
     return render(request, 'Focuser/focuser_favorites.html', context)
@@ -129,7 +126,6 @@ def meteorshower(request):
     response = 'http://api.wolframalpha.com/v1/simple?appid={}&i=where+is+the+next+meteor+shower%3F'.format(wolfram_key)
     #response = requests.get('http://api.wolframalpha.com/v1/simple?appid={}&i=What+airplanes+are+flying+overhead%3F'.format(wolfram_key))
 
-    print(response)
     context = {'response':response}
     #print (response.headers['Content-Type'])
     return render(request, 'Focuser/focuser_meteor_shower.html', context)
