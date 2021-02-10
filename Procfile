@@ -1,2 +1,2 @@
 
-web: gunicorn FOCUSER.wsgi --log-file -
+web: gunicorn Focuser.wsgi --log-file -
