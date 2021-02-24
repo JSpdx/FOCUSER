@@ -11,11 +11,10 @@
             <p id="apod_description">{{explanation}}</p>                          <!--displays an explanation from the API-->
         </div>
         <form method="post">
-                {% csrf_token %}
-                <h5>Find another entry</h5>
-                <p>ex: 2010-02-04</p>
-                <input type="text" name="date" ></input>
-                <button class="btn btn-danger" onclick="location.href='{% url 'apod' %}'">Submit</button>
+            {% csrf_token %}
+            <h5>Find another entry</h5>
+            <input type="date" name="date">
+            <button class="btn btn-danger" onclick="location.href='{% url 'apod' %}'">Submit</button>
         </form>
 
         <form method ="post">
